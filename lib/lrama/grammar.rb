@@ -576,7 +576,7 @@ module Lrama
         rhs1.reverse!
 
         # Bison n'th component is 1-origin
-        (rhs1 + [code]).compact.each.with_index(1) do |token, i|
+        (rhs1 + [code]).tap(&:compact!).each.with_index(1) do |token, i|
           if token.type == Token::User_code
             token.references.each do |ref|
               # Need to keep position_in_rhs for actions in the middle of RHS
