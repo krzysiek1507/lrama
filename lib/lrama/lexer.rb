@@ -124,7 +124,7 @@ module Lrama
           tokens << create_token(Token::Named_Ref, ss[2], line, ss.pos - column)
         when ss.skip(/([a-zA-Z_.][-a-zA-Z0-9_.]*)\s*:/)
           tokens << create_token(Token::Ident_Colon, ss[1], line, ss.pos - column)
-        when ss.skip(/([a-zA-Z_.][-a-zA-Z0-9_.]*)/)
+        when ss.skip(/([a-zA-Z_.][-a-zA-Z0-9_.]*)(\(.*\))?/)
           tokens << create_token(Token::Ident, ss[0], line, ss.pos - column)
         when ss.skip(/\[([a-zA-Z_.][-a-zA-Z0-9_.]*)\]/)
           tokens << create_token(Token::Named_Ref, ss[1], line, ss.pos - column)
