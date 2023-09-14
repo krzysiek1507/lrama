@@ -208,12 +208,12 @@ module Lrama
         end
       end
 
-      rules.select {|r| r.nullable.nil? }.each do |rule|
-        rule.nullable = false
+      rules.each do |rule|
+        rule.nullable = false if rule.nullable.nil?
       end
 
-      nterms.select {|r| r.nullable.nil? }.each do |nterm|
-        nterm.nullable = false
+      nterms.each do |nterm|
+        nterm.nullable = false if nterm.nullable.nil?
       end
     end
 
