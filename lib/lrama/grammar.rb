@@ -667,7 +667,7 @@ module Lrama
         used_numbers[n] = true
       end
 
-      (@symbols.select(&:term?) + @symbols.select(&:nterm?)).each do |sym|
+      (terms + nterms).each do |sym|
         while used_numbers[number] do
           number += 1
         end
